@@ -1,112 +1,90 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3TS0mELD)
-# Machine Learning Task 1
-## Breast Cancer — Binary Classification
+# Breast Cancer — Binary Classification
 
----
+## Project Overview
 
-## Objective
+This project focuses on building and comparing multiple binary classification models to predict whether a breast tumor is:
 
-In this task, you will build and compare multiple **binary classification** models to predict whether a tumor is:
+* 0 — Malignant (Cancerous)
+* 1 — Benign (Non-cancerous)
 
-- **0 — Malignant (Cancerous)**
-- **1 — Benign (Non-cancerous)**
+The goal of this task is to train machine learning models, evaluate their performance using different classification metrics, and compare the results to determine the best model.
 
-You must use the following models covered in class:
-
-- Logistic Regression
-- Support Vector Machine (SVM)
-- K-Nearest Neighbors (KNN)
-
-The focus of this task is **model training, evaluation, and comparison**.
-
-⚠️ Feature scaling is NOT allowed in this task.
+Feature scaling was not used in this project, as required in the assignment instructions.
 
 ---
 
 ## Dataset
 
-We will use the **Breast Cancer Wisconsin Dataset**, available directly in `scikit-learn`.
+The dataset used is the Breast Cancer Wisconsin Dataset, available directly from scikit-learn.
 
-### Dataset Overview
+Dataset characteristics:
 
-- 569 samples
-- 30 numerical features
-- Binary target variable
-- No missing values
+* 569 samples
+* 30 numerical features
+* Binary target variable
+* No missing values
 
-Each feature represents a measurement extracted from a digitized image of a breast mass (e.g., radius, texture, area, smoothness, concavity, symmetry, etc.).
-
----
-
-## Dataset Loading
-
-Use the following code to load the dataset:
-
-```python
-from sklearn.datasets import load_breast_cancer
-
-data = load_breast_cancer()
-X = data.data
-y = data.target
-```
+Each feature represents measurements extracted from a digitized image of a breast mass, such as radius, texture, area, smoothness, concavity, and symmetry.
 
 ---
 
-## Required Tasks
+## Models Used
 
-### 1. Train-Test Split
+The following classification models were trained using default parameters:
 
-Split the dataset using:
+1. Logistic Regression
+2. Support Vector Machine (SVM)
+3. K-Nearest Neighbors (KNN)
 
-- `test_size = 0.2`
-- `random_state = 42`
-- `stratify = y`
+All models were trained on 80% of the data and tested on the remaining 20%, using:
 
-### 2. Model Training
+* test_size = 0.2
+* random_state = 42
+* stratify = y
 
-Train the following models:
+Stratification ensures that the class distribution remains consistent in both training and testing sets.
 
-- Logistic Regression
-- SVM
-- KNN
+---
 
-Use default parameters unless clearly justified.
+## Evaluation Metrics
 
-### 3. Model Evaluation
+Each model was evaluated using the following metrics:
 
-For each model, compute:
+* Accuracy
+* Precision
+* Recall
+* F1-score
+* Confusion Matrix
 
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
+These metrics provide a complete view of model performance, especially in medical classification problems where different types of errors have different consequences.
 
-### 4. Model Comparison
+---
 
-Create a comparison table summarizing the evaluation metrics for all models.
+## Results and Comparison
 
-Then write a short conclusion answering:
+After training and evaluation, the performance metrics of all models were summarized in a comparison table.
 
-- Which model performed best?
-- In a medical context, which metric is most important and why?
+The best model is determined based on overall performance, particularly the F1-score, which balances Precision and Recall.
+
+---
+
+## Medical Context Consideration
+
+In medical diagnosis tasks, Recall is the most important metric.
+
+Recall measures how many actual cancer cases were correctly identified. A low recall means the model misses malignant cases (False Negatives), which can be very dangerous in real-world medical scenarios.
+
+Therefore, minimizing False Negatives is more critical than slightly improving overall accuracy.
 
 ---
 
 ## Project Structure
 
-Your project must follow this structure:
-
 ```
-breast-cancer-binary-classification/
+ML-TASK1-HUSSAM-HADDADI/
 ├── modeling.ipynb
 └── README.md
 ```
 
----
-
-## Submission Requirements
-
-- Clean and organized notebook
-- Clear metric comparison
-- Written conclusion
+* modeling.ipynb contains all model training, evaluation, and comparison.
+* README.md provides a summary of the project and results.
