@@ -82,7 +82,7 @@ Therefore, minimizing False Negatives is more critical than slightly improving o
 
 ```
 ML-TASK1-HUSSAM-HADDADI/
-├── modeling.ipynb
+├── TRAIN.ipynb
 └── README.md
 ```
 
